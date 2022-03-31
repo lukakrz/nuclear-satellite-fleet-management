@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SatelliteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// public routes
+Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/auth/login', [AuthController::class, 'login']);
+
+// protected routes
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/satellites', [SatelliteController::class, 'index']);
+    Route::post('/satellites', [SatelliteController::class, 'store']);
+    Route::get('/satellites/{id}', [SatelliteController::class, 'show']);
+    Route::put('/satellites/{id}', [SatelliteController::class, 'update']);
+    Route::delete('/satellites/{id}', [SatelliteController::class, 'destroy']);
 });
+
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
