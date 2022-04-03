@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'origin'
+        'origin',
+        'has_atomic_button',
     ];
 
     /**

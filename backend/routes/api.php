@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SatelliteController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +27,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/satellites/{id}', [SatelliteController::class, 'show']);
     Route::put('/satellites/{id}', [SatelliteController::class, 'update']);
     Route::delete('/satellites/{id}', [SatelliteController::class, 'destroy']);
+
+    Route::get('/user', [UserController::class, 'index']);
+    Route::put('/user', [UserController::class, 'update']);
+
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSatelliteRequest;
+use App\Http\Requests\UpdateSatelliteRequest;
 use App\Models\Satellite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +18,8 @@ class SatelliteController extends Controller
      */
     public function index()
     {
-        return Satellite::where('user_id', Auth::id())->get();
+        return Satellite::where('user_id', Auth::id())->paginate(5);
+        // return Satellite::paginate(5);
     }
 
     /**
@@ -25,8 +28,9 @@ class SatelliteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSatelliteRequest $request)
     {
+        $request->validated();
         $satellite = Satellite::create($request->all() + ['user_id' => Auth::id()]);
 
         return $satellite;
@@ -50,10 +54,11 @@ class SatelliteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateSatelliteRequest $request, $id)
     {
+        $request->validated();
         $satellite = Satellite::find($id);
-        $satellite->updated_at = Carbon::yesterday();
+        $satellite->updated_at = Carbon::now();
         $satellite->update($request->all());
 
         return $satellite;
