@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://127.0.0.1:8000'
+const baseURL = 'https://satellite-app-lk.herokuapp.com'
 
 let token = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null
 
