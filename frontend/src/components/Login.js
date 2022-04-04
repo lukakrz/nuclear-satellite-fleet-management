@@ -25,6 +25,10 @@ const buttonGroup = {
     justifyContent: 'end',
     marginTop: '50px',
 }
+const button = {
+    backgroundColor: '#845EC2',
+    border: '1px solid #5B2DA6',
+}
 
 const Login = () => {
     let navigate = useNavigate();
@@ -71,7 +75,7 @@ const Login = () => {
                 </Form.Group>
                 <Form.Group style={buttonGroup}>
                     <Link to="/register" style={registerSpan}>Zarejestruj się!</Link>
-                    <Button onClick={logIn}>Zaloguj</Button>
+                    <Button style={button} onClick={logIn}>Zaloguj</Button>
                 </Form.Group>
             </Form>
         </div>

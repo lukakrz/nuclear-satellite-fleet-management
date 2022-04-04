@@ -27,6 +27,11 @@ const buttonGroup = {
     marginTop: '50px',
 }
 
+const button = {
+    backgroundColor: '#845EC2',
+    border: '1px solid #5B2DA6',
+}
+
 const Register = () => {
     let navigate = useNavigate();
     const [name, setName] = useState('');
@@ -101,7 +106,7 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group style={buttonGroup}>
                     <Link to="/" style={registerSpan}>Masz już konto?</Link>
-                    <Button onClick={register}>Zarejestruj się</Button>
+                    <Button style={button} onClick={register}>Zarejestruj się</Button>
                 </Form.Group>
             </Form>
         </div >

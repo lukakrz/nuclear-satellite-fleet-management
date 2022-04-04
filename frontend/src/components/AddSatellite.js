@@ -101,7 +101,7 @@ const AddSatellite = () => {
                             <Form.Group className="mb-3 w-75">
                                 {errors.orbit_altitude ? <Badge bg="danger"> {errors.orbit_altitude} </Badge> : null}
                                 <Form.Label>Wysokość na orbicie</Form.Label>
-                                <Form.Control type="text" placeholder="Podaj wysokość na orbicie" value={orbitAltitude} onChange={(e) => setOrbitAltitude(e.target.value)} />
+                                <Form.Control type="text" placeholder="Podaj wysokość na orbicie w kilometrach" value={orbitAltitude} onChange={(e) => setOrbitAltitude(e.target.value)} />
                             </Form.Group></Row>
                         <Row className="d-flex justify-content-center">
                             <Form.Group className="mb-3 w-75">
