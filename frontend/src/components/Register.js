@@ -70,7 +70,7 @@ const Register = () => {
                 </Form.Group>
                 {errors.password ? <Badge bg="danger"> {errors.password} </Badge> : null}
                 <Form.Group className="mb-3">
-                    <Form.Label>Hasło</Form.Label>
+                    <Form.Label>Hasło (<small>musi posiadać min. 6 znaków, jedną cyfrę, jeden znak specjalny</small>)</Form.Label>
                     <Form.Control type="password" placeholder="Podaj hasło" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
                 <Form.Group className="mb-3" style={{ display: 'flex', justifyContent: 'space-around' }} value={atomicButton} onChange={(e) => setAtomicButton(e.target.value)}>
@@ -85,7 +85,6 @@ const Register = () => {
                                     type={type}
                                     id={`inline-${type}-1`}
                                     value={1}
-
                                 />
                                 <Form.Check
                                     inline

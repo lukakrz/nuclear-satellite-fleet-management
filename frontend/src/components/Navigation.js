@@ -24,7 +24,6 @@ const Navigation = () => {
   const logOut = async () => {
     try {
       const response = await AxiosConfig.post('/api/auth/logout')
-
       if (response && response.status === 204) {
         localStorage.clear();
         setTimeout(window.location.reload(), 1500);
