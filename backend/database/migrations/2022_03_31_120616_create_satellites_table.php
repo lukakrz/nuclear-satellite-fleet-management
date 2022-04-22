@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('is_ai')->default(false);
             $table->date('created_at');
             $table->date('updated_at');
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 
